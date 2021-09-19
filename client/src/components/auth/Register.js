@@ -24,6 +24,7 @@ const Register = ({ setAlert, register }) => {
       setAlert('Password do not match', 'danger');
     } else {
       register({ userName, password });
+      setUserForm({ ...userForm, userName: '', password: '', password2: '' });
     }
   };
   return (
@@ -41,6 +42,7 @@ const Register = ({ setAlert, register }) => {
               value={userName}
               onChange={onChange}
               className="form-control"
+              required
             />
           </div>
           <div className="form-group">
@@ -51,6 +53,8 @@ const Register = ({ setAlert, register }) => {
               value={password}
               onChange={onChange}
               className="form-control"
+              required
+              minLength={4}
             />
           </div>
           <div className="form-group">
@@ -61,6 +65,8 @@ const Register = ({ setAlert, register }) => {
               value={password2}
               onChange={onChange}
               className="form-control"
+              required
+              minLength={4}
             />
           </div>
           <input

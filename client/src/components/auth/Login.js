@@ -1,7 +1,10 @@
 import React, { useState, Fragment } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setAlert } from '../../actions/alert';
+import { login } from '../../actions/auth';
 
-const Login = () => {
+const Login = ({ setAlert, login }) => {
   const [user, setUser] = useState({
     userName: '',
     password: '',
@@ -15,6 +18,12 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    if (userName === '' || password === '') {
+      setAlert('Fill in every filed');
+    } else {
+      login({ userName, password });
+      setUser({ ...user, userName: '', password: '' });
+    }
   };
   return (
     <Fragment>
@@ -58,4 +67,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default connect(null, { setAlert, login })(Login);
