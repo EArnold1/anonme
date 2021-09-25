@@ -1,10 +1,10 @@
 import React, { useState, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 
-const Register = ({ setAlert, register }) => {
+const Register = ({ setAlert, register, isAuthenticated }) => {
   const [userForm, setUserForm] = useState({
     userName: '',
     password: '',
@@ -27,6 +27,11 @@ const Register = ({ setAlert, register }) => {
       setUserForm({ ...userForm, userName: '', password: '', password2: '' });
     }
   };
+
+  if (isAuthenticated) {
+    return <Redirect to="/me/messages" />;
+  }
+
   return (
     <Fragment>
       <div className="form-group">
@@ -83,4 +88,8 @@ const Register = ({ setAlert, register }) => {
   );
 };
 
-export default connect(null, { setAlert, register })(Register);
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { setAlert, register })(Register);

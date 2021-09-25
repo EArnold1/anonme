@@ -1,10 +1,10 @@
 import React, { useState, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 import { login } from '../../actions/auth';
 
-const Login = ({ setAlert, login }) => {
+const Login = ({ setAlert, login, auth: { isAuthenticated } }) => {
   const [user, setUser] = useState({
     userName: '',
     password: '',
@@ -25,6 +25,11 @@ const Login = ({ setAlert, login }) => {
       setUser({ ...user, userName: '', password: '' });
     }
   };
+
+  if (isAuthenticated) {
+    return <Redirect to="/me/messages" />;
+  }
+
   return (
     <Fragment>
       {' '}
@@ -41,6 +46,7 @@ const Login = ({ setAlert, login }) => {
               name="userName"
               value={userName}
               onChange={onChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -51,6 +57,8 @@ const Login = ({ setAlert, login }) => {
               className="form-control"
               value={password}
               onChange={onChange}
+              required
+              minLength={4}
             />
           </div>
           <input
@@ -66,5 +74,8 @@ const Login = ({ setAlert, login }) => {
     </Fragment>
   );
 };
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
 
-export default connect(null, { setAlert, login })(Login);
+export default connect(mapStateToProps, { setAlert, login })(Login);

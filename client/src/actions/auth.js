@@ -6,6 +6,8 @@ import {
   LOGIN_SUCCESS,
   USER_LOADED,
   AUTH_ERROR,
+  LOGOUT,
+  CLEAR_MSG,
 } from './types';
 import { setAlert } from './alert';
 import setAuthToken from '../utils/setAuthToken';
@@ -17,7 +19,7 @@ export const loadUser = () => async (dispatch) => {
 
   try {
     const res = await axios.get('http://localhost:5000/api/auth');
-    console.log(res.data);
+
     dispatch({
       type: USER_LOADED,
       payload: res.data,
@@ -99,3 +101,10 @@ export const login =
       });
     }
   };
+
+export const logout = () => (dispatch) => {
+  dispatch({
+    type: LOGOUT,
+  });
+  dispatch({ type: CLEAR_MSG });
+};
