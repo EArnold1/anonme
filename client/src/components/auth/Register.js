@@ -11,6 +11,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     password2: '',
   });
 
+  const [clicked, setClicked] = useState(false);
+
   const { userName, password, password2 } = userForm;
 
   const onChange = (e) => {
@@ -24,7 +26,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       setAlert('Password do not match', 'danger');
     } else {
       register({ userName, password });
-      setUserForm({ ...userForm, userName: '', password: '', password2: '' });
+      setClicked(true);
+      setTimeout(() => {
+        setClicked(true);
+      }, 5000);
     }
   };
 
@@ -74,11 +79,16 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               minLength={4}
             />
           </div>
-          <input
+          <button
             type="submit"
-            value="Register"
+            value="Login"
             className="btn btn-primary btn-block"
-          />
+          >
+            <span
+              className={`${clicked && 'spinner-grow spinner-grow-sm'}`}
+            ></span>{' '}
+            Submit
+          </button>
         </form>
       </div>
       <p className="my-1">

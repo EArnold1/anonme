@@ -99,7 +99,8 @@ const Landing = () => {
                 <p className="card-text">
                   If there is anything that you need help with related to our
                   anonymous messaging and feedback platform, We are always here
-                  for you. 24 hours a day and 7 days a week.
+                  for you. 24 hours a day and 7 days a week.{' '}
+                  <Link to="/contact">CONTACT</Link>
                 </p>
               </div>
             </div>

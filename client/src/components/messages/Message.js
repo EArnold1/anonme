@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useParams, Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { msgWrite } from '../../actions/message';
+import { loadUser } from '../../actions/auth';
 
-const Message = ({ msg, msgWrite, isAuthenticated }) => {
+const Message = ({ msg, msgWrite, loadUser, isAuthenticated, history }) => {
   const { username } = useParams();
   const [messageVal, setMessage] = useState({
     message: '',
@@ -17,12 +18,19 @@ const Message = ({ msg, msgWrite, isAuthenticated }) => {
     e.preventDefault();
     msgWrite({ message, username });
     setMessage({ message: '' });
+    loadUser();
 
-    // if (isAuthenticated) {
-    //   return <Redirect to="/me/messages" />;
-    // } else {
-    //   return <Redirect to="/register" />;
-    // }
+    redirect();
+  };
+
+  const redirect = () => {
+    setTimeout(() => {
+      if (isAuthenticated) {
+        history.push('/me/messages');
+      } else {
+        history.push('/register');
+      }
+    }, 5000);
   };
 
   return (
@@ -30,11 +38,7 @@ const Message = ({ msg, msgWrite, isAuthenticated }) => {
       <div className="text-center">
         <h2>Write Something</h2>
       </div>
-      {msg && (
-        <p className="text-success text-center">
-          {msg} <Link to="/register">Register </Link>{' '}
-        </p>
-      )}
+      {msg && <p className="text-success text-center">{msg}</p>}
       <br />
       <div className="container w-75 px-auto">
         <p className="lead">Say Something About Me</p>
@@ -51,7 +55,6 @@ const Message = ({ msg, msgWrite, isAuthenticated }) => {
               style={{ fontSize: 'large' }}
               onChange={onChange}
               value={message}
-              minLength={5}
               required
             />
             <br />
@@ -70,4 +73,4 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { msgWrite })(Message);
+export default connect(mapStateToProps, { msgWrite, loadUser })(Message);

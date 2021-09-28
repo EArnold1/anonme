@@ -8,7 +8,7 @@ import {
 
 const initialState = {
   msg: null,
-  messages: null,
+  messages: [],
 };
 
 export default function (state = initialState, action) {
@@ -23,8 +23,7 @@ export default function (state = initialState, action) {
     case MSG_SUCCESS:
       return {
         ...state,
-        msg: 'Successfully sent',
-        messages: payload,
+        msg: payload,
       };
     case MSG_CLEAR:
     case GETMSG_FAIL:

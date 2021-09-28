@@ -103,8 +103,8 @@ export const login =
   };
 
 export const logout = () => (dispatch) => {
+  dispatch({ type: CLEAR_MSG });
   dispatch({
     type: LOGOUT,
   });
-  dispatch({ type: CLEAR_MSG });
 };

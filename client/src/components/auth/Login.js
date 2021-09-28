@@ -10,6 +10,8 @@ const Login = ({ setAlert, login, auth: { isAuthenticated } }) => {
     password: '',
   });
 
+  const [clicked, setClicked] = useState(false);
+
   const { userName, password } = user;
 
   const onChange = (e) => {
@@ -21,8 +23,8 @@ const Login = ({ setAlert, login, auth: { isAuthenticated } }) => {
     if (userName === '' || password === '') {
       setAlert('Fill in every filed');
     } else {
+      setClicked(true);
       login({ userName, password });
-      setUser({ ...user, userName: '', password: '' });
     }
   };
 
@@ -61,11 +63,16 @@ const Login = ({ setAlert, login, auth: { isAuthenticated } }) => {
               minLength={4}
             />
           </div>
-          <input
+          <button
             type="submit"
             value="Login"
             className="btn btn-primary btn-block"
-          />
+          >
+            <span
+              className={`${clicked && 'spinner-grow spinner-grow-sm'}`}
+            ></span>{' '}
+            Submit
+          </button>
         </form>
       </div>
       <p className="my-1">

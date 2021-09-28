@@ -1,7 +1,47 @@
+body {
+  background-color: azure;
+}
+
+@media only screen and (min-width: 992px) {
+  .navbar-nav {
+    margin-left: 920px;
+  }
+}
+
 .jumbotron {
   background-color: #3f9ac7;
 }
 
 .landingImg {
   background-color: #7ab9d8;
+}
+
+.copy {
+  background-color: #959da4;
+}
+
+.message {
+  background-color: #c3ddd3;
+}
+
+.l {
+  cursor: pointer;
+}
+.light {
+  background-color: #bec5c3;
+}
+
+.texth {
+  font-size: 20px;
+}
+
+a:hover,
+.ex:hover {
+  text-decoration: none;
+  color: #0275d8;
+  font-size: large;
+}
+
+.btn a {
+  color: rgb(31, 31, 31);
 }

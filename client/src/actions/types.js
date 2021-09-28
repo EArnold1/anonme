@@ -12,3 +12,5 @@ export const MSG_CLEAR = 'MSG_CLEAR';
 export const GET_MSG = 'GET_MSG';
 export const GETMSG_FAIL = 'GETMSG_FAIL';
 export const CLEAR_MSG = 'CLEAR_MSG';
+export const SHARE = 'SHARE';
+export const SHARE_FAIL = 'SHARE_FAIL';

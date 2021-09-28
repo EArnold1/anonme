@@ -5,7 +5,7 @@ import { logout } from '../../actions/auth';
 
 const Navbar = ({ auth: { loading, isAuthenticated }, logout }) => {
   const guestLinks = (
-    <ul className="navbar-nav">
+    <ul className="navbar-nav text-right">
       <li className="nav-item">
         <Link className="nav-link text-light" to="/login">
           LOGIN
@@ -17,7 +17,7 @@ const Navbar = ({ auth: { loading, isAuthenticated }, logout }) => {
         </Link>
       </li>
       <li className="nav-item">
-        <Link className="nav-link text-light" to="#">
+        <Link className="nav-link text-light" to="/about">
           ABOUT
         </Link>
       </li>
@@ -36,6 +36,11 @@ const Navbar = ({ auth: { loading, isAuthenticated }, logout }) => {
           ABOUT
         </Link>
       </li>
+      <li className="nav-item">
+        <Link className="nav-link text-light" to="/profile">
+          PROFILE
+        </Link>
+      </li>
       <li className="nav-item" onClick={logout}>
         <Link className="nav-link text-light" to="/">
           <i className="fas fa-sign-out-alt" /> LOGOUT
@@ -45,7 +50,7 @@ const Navbar = ({ auth: { loading, isAuthenticated }, logout }) => {
   );
 
   return (
-    <nav className="navbar navbar-expand-md bg-primary navbar-dark py-1 fixed-top">
+    <nav className="navbar navbar-expand-lg bg-primary navbar-dark py-1 fixed-top">
       <Link className="navbar-brand" to="/">
         <h2>
           {' '}
@@ -60,7 +65,10 @@ const Navbar = ({ auth: { loading, isAuthenticated }, logout }) => {
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div className="collapse navbar-collapse" id="collapsibleNavbar">
+      <div
+        className="collapse navbar-collapse text-right"
+        id="collapsibleNavbar"
+      >
         {isAuthenticated ? authLinks : guestLinks}
       </div>
     </nav>

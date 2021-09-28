@@ -21,7 +21,7 @@ export const msgWrite =
       );
       dispatch({
         type: MSG_SUCCESS,
-        payload: res.data,
+        payload: res.data.msg,
       });
 
       setTimeout(() => {
@@ -54,5 +54,14 @@ export const getMsg = () => async (dispatch) => {
     dispatch({
       type: GETMSG_FAIL,
     });
+  }
+};
+
+export const share = (shareData) => async (dispatch) => {
+  try {
+    await navigator.share(shareData);
+    dispatch(setAlert('Message shared', 'success'));
+  } catch (err) {
+    dispatch(setAlert('Error', 'danger'));
   }
 };

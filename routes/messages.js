@@ -10,8 +10,8 @@ const auth = require('../middleware/auth');
 //access private
 router.get('/', auth, async (req, res) => {
   try {
-    const message = await Messages.find({ user: req.user.id });
-    res.json(message[0].messageContainer);
+    const message = await Messages.findOne({ user: req.user.id });
+    res.json(message.messageContainer);
   } catch (err) {
     console.error(err);
     res.status(500).json({ errors: [{ msg: 'Server Error' }] });
@@ -44,7 +44,7 @@ router.post(
       messageData.messageContainer.unshift({ message });
       await messageData.save();
 
-      res.json(messageData.messageContainer);
+      res.json({ msg: 'Message successfully sent' });
     } catch (err) {
       console.error(err);
       res.status(500).json({ msg: 'Server Error' });
