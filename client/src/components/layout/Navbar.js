@@ -25,7 +25,7 @@ const Navbar = ({ auth: { loading, isAuthenticated }, logout }) => {
   );
 
   const authLinks = (
-    <ul className="navbar-nav">
+    <ul className="navbar-nav text-right">
       <li className="nav-item">
         <Link className="nav-link text-light" to="/me/messages">
           MESSAGES
@@ -50,7 +50,7 @@ const Navbar = ({ auth: { loading, isAuthenticated }, logout }) => {
   );
 
   return (
-    <nav className="navbar navbar-expand-lg bg-primary navbar-dark py-1 fixed-top">
+    <nav className="navbar navbar-expand-md bg-primary navbar-dark py-1 fixed-top shadow">
       <Link className="navbar-brand" to="/">
         <h2>
           {' '}
@@ -66,7 +66,7 @@ const Navbar = ({ auth: { loading, isAuthenticated }, logout }) => {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div
-        className="collapse navbar-collapse text-right"
+        className="collapse navbar-collapse justify-content-end"
         id="collapsibleNavbar"
       >
         {isAuthenticated ? authLinks : guestLinks}

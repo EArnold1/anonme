@@ -6,7 +6,7 @@ const Contact = () => {
     <div>
       <p>
         {' '}
-        You can contact us using the following social media platforms listed-{' '}
+        You can contact us using the following social media platforms listed -{' '}
         <span>
           {' '}
           <a
@@ -36,9 +36,10 @@ const Contact = () => {
           <a href="mailto:webarnold17@gmail.com?subject = Feedback&body = Message">
             here!
           </a>
-        </span>{' '}
-        If you are a Law Enforcement Agency Representative, you are requested to
-        contact via special channels. Click Here for More information.
+        </span>
+        , If you have any suggestions, or complaints do not hesitate to send us
+        a mail. We are always available and improvements will be added to the
+        new version of <span className="font-weight-bold">Anonme</span>
       </p>
       <br />
       <button className="btn btn-outline-primary m-3">

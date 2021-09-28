@@ -1,11 +1,6 @@
 body {
   background-color: azure;
-}
-
-@media only screen and (min-width: 992px) {
-  .navbar-nav {
-    margin-left: 920px;
-  }
+  font-family: 'Quicksand', sans-serif;
 }
 
 .jumbotron {
@@ -17,7 +12,8 @@ body {
 }
 
 .copy {
-  background-color: #959da4;
+  background-color: #373838;
+  color: white;
 }
 
 .message {
@@ -39,6 +35,11 @@ a:hover,
 .ex:hover {
   text-decoration: none;
   color: #0275d8;
+  font-size: large;
+}
+
+.card .p3:hover,
+.copy:hover {
   font-size: large;
 }
 

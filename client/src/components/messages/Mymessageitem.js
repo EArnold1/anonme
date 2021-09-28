@@ -8,7 +8,6 @@ const Mymessageitem = ({ messages }) => {
       <div className="card-body">
         <span className="card-text font-weight-bold">Message:</span>
         <p className="card-text">{message}</p>
-
         <span>-Anonymous [{moment(date).format('lll')}]</span>
       </div>
     </div>
