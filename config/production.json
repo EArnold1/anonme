@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://files:files@fileupload.md9nr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "jwtSecret": "anonme"
+}

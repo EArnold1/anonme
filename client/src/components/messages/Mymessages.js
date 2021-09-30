@@ -12,7 +12,7 @@ const Mymessages = ({ getMsg, messages, user }) => {
   //Copy logic
   const [clip, setClip] = useState({
     copied: false,
-    value: `${window.location.hostname}/message/`,
+    value: `${window.location.hostname}/message/${user.userName}`,
   });
   const { value, copied } = clip;
 
@@ -57,7 +57,7 @@ const Mymessages = ({ getMsg, messages, user }) => {
           ))}
         </div>
       ) : (
-        <p className="lead display-4 text-center">No message yet</p>
+        <p className="lead display-4 text-center">Oops!!!, No message</p>
       )}
     </Fragment>
   );
