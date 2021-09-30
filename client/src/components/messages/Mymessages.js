@@ -12,7 +12,7 @@ const Mymessages = ({ getMsg, messages, user }) => {
   //Copy logic
   const [clip, setClip] = useState({
     copied: false,
-    value: `${window.location.hostname}/message/${user.userName}`,
+    value: `${window.location.hostname}/message/`,
   });
   const { value, copied } = clip;
 
@@ -32,7 +32,7 @@ const Mymessages = ({ getMsg, messages, user }) => {
       <section className="container" style={{ marginTop: '55px' }}>
         <div className="my-3 p-3">
           {user !== null && (
-            <CopyToClipboard text={value} onCopy={onCopy}>
+            <CopyToClipboard text={`${value}${user.userName}`} onCopy={onCopy}>
               <p className="p-2 l copy rounded d-md-inline">
                 <i className="fas fa-share-alt"></i>{' '}
                 {`https://${value}${user.userName}`}{' '}
