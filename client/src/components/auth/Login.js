@@ -25,6 +25,9 @@ const Login = ({ setAlert, login, auth: { isAuthenticated } }) => {
     } else {
       setClicked(true);
       login({ userName, password });
+      setTimeout(() => {
+        setClicked(false);
+      }, 5000);
     }
   };
 

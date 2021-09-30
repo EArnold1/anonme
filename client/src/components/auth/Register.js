@@ -28,7 +28,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       register({ userName, password });
       setClicked(true);
       setTimeout(() => {
-        setClicked(true);
+        setClicked(false);
       }, 5000);
     }
   };

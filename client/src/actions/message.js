@@ -15,7 +15,7 @@ export const msgWrite =
 
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/messages/${username}`,
+        `/api/messages/${username}`,
         msgBody,
         config
       );
@@ -44,7 +44,7 @@ export const msgWrite =
 
 export const getMsg = () => async (dispatch) => {
   try {
-    const res = await axios.get('http://localhost:5000/api/messages');
+    const res = await axios.get('/api/messages');
 
     dispatch({
       type: GET_MSG,
