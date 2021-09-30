@@ -33,7 +33,7 @@ const Mymessages = ({ getMsg, messages, user }) => {
         <div className="my-3 p-3">
           {user !== null && (
             <CopyToClipboard text={`${value}${user.userName}`} onCopy={onCopy}>
-              <p className="p-2 l copy rounded d-md-inline">
+              <p className="p-2 l copy rounded small d-md-inline">
                 <i className="fas fa-share-alt"></i>{' '}
                 {`https://${value}${user.userName}`}{' '}
                 <i className="far fa-copy"></i>

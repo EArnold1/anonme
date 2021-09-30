@@ -37,7 +37,7 @@ const Profile = ({ user, share }) => {
       </h3>
       <div className="mx-auto container">
         {user !== null && (
-          <CopyToClipboard text={value} onCopy={onCopy}>
+          <CopyToClipboard text={`${value}${user.userName}`} onCopy={onCopy}>
             <p className="p-2 l copy rounded d-md-inline">
               <i className="fas fa-share-alt"></i>{' '}
               {`http://${value}${user.userName}`}{' '}

@@ -63,5 +63,6 @@ export const share = (shareData) => async (dispatch) => {
     dispatch(setAlert('Message shared', 'success'));
   } catch (err) {
     dispatch(setAlert('Error', 'danger'));
+    console.log(err);
   }
 };
