@@ -61,7 +61,7 @@ const Profile = ({ user, share }) => {
           </Link>
         </p>
         <p
-          className="light text-center text-primary l p-2 col-sm-12 m-1 rounded"
+          className="light text-center text-primary d-none l p-2 col-sm-12 m-1 rounded"
           onClick={shareProfile}
         >
           <span className="ex">
